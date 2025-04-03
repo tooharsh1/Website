@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prank Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: "Comic Sans MS", sans-serif;
+            text-align: center;
+            transition: background 0.5s ease-in-out;
+        }
+        .hidden {
+            display: none;
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+        .prank-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .prank-button:hover {
+            background-color: darkred;
+        }
+        .button-container {
+            display: flex;
+            gap: 15px;
+        }
+        .return-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .return-button:hover {
+            background-color: gray;
+        }
+        .prank-image {
+            margin-top: 20px;
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body id="main-body" style="background: url('https://wallpaperaccess.com/full/5630556.jpg') no-repeat center center/cover;">
+
+    <!-- First Page -->
+    <div id="first-page">
+        <h1>Hey Mand Badak!</h1>
+        <img src="https://i.gifer.com/XOsX.gif" alt="Funny Duck" width="300">
+        <br><br>
+        <button class="prank-button" onclick="showSecondPage()">Click Me!</button>
+    </div>
+
+    <!-- Second Page -->
+    <div id="second-page" class="hidden">
+        <h1>Which one are you?</h1>
+        <div class="button-container">
+            <button class="prank-button" onclick="prank('Modakpaglu', 'https://i.imgur.com/3rXn1.jpg')">Modakpaglu</button>
+            <button class="prank-button" onclick="prank('Zhoppaglu', 'https://i.imgur.com/9iUVy.jpg')">Alshipaglu</button>
+            <button class="prank-button" onclick="prank('Rohitpaglu', 'https://i.imgur.com/v0D5N.jpg')">Rohitpaglu</button>
+        </div>
+        <br>
+        <img id="prank-image" class="hidden prank-image" src="" alt="Prank Image">
+        <br>
+        <button class="return-button" onclick="goBack()">⬅️ Return</button>
+    </div>
+
+    <script>
+        function showSecondPage() {
+            document.getElementById("first-page").classList.add("hidden");
+            document.getElementById("second-page").classList.remove("hidden");
+        }
+
+        function goBack() {
+            document.getElementById("second-page").classList.add("hidden");
+            document.getElementById("first-page").classList.remove("hidden");
+            document.getElementById("prank-image").classList.add("hidden");
+        }
+
+        function prank(type, imageUrl) {
+            alert("You chose: " + type + "! Haha, you're officially a Paglu! 😂");
+            let imgElement = document.getElementById("prank-image");
+            imgElement.src = imageUrl;
+            imgElement.classList.remove("hidden");
+        }
+    </script>
+
+</body>
+</html>
